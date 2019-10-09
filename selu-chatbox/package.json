@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@withvoid/melting-pot": "^1.6.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
+    "react-use-localstorage": "^3.2.2",
+    "styled-components": "^4.4.0",
+    "use-clippy": "^1.0.3",
     "use-immer": "^0.3.4",
     "use-socket.io-client": "^1.0.4"
   },
