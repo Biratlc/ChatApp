@@ -11,7 +11,7 @@ const Messages = props => {
     const [ clipboard, setClipboard ] = useClippy();
 
     return props.data.map(m => m[0] !== '' ?
-        (<li><strong>{m[0]}</strong> :<a onClick={()=>{setClipboard(`${m[1]}`)}} href="#"><i style={{float:'right',color:'black'}} class=" material-icons">content_copy</i></a> <div className="innermsg">{m[1]}</div></li>)
+        (<li><strong>{m[0]}</strong> :<a onClick={()=>{setClipboard(`${m[1]}`)}} href="#"><i style={{float:'right',color:'black'}} class="material-icons">✅</i></a> <div className="innermsg">{m[1]}</div></li>)
         : (<li className="update">{m[1]}</li>) );
 }
 
@@ -115,20 +115,33 @@ export default () => {
     ) : (
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
             <form onSubmit={event => handleSubmit(event)}>
-                <input id="name" required placeholder="What's your name ?" /><br />
+                <label>User Name :  </label><input id="name" /><br />
 
-                <input id="room" placeholder="What's your Major ?" /><br />
+                {/*<input id="room" placeholder="What's your Major ?" />*/}
+                <br />
 
 
-      {/*<label for=" sel-options">What's your Major ?"</label>*/}
+      {/*<label for=" sel-options">What's your Major ?</label>*/}
       {/*<select id=" sel-options" class=" form-control">*/}
          {/*<option value="">Select Class</option>*/}
          {/*<option id="room" value="CMPS 411">CMPS 411</option>*/}
-         {/*<option id="room" value="Mathematics">Mathematics</option>*/}
+         {/*<option id="room" value="Math">Mathematics</option>*/}
+
 
       {/*</select>*/}
 
 
+                <label> Major :  </label>
+                <select id = "room" >
+                    <option value = "Computer Science">Computer Science</option>
+                    <option value = "Mathematics">Mathematics</option>
+                </select>
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
 
                 <button type="submit">Submit</button>
             </form>
