@@ -4,7 +4,7 @@ import useSocket from 'use-socket.io-client';
 import { useImmer } from 'use-immer';
 import { useOnlineStatus, useWindowSize } from '@withvoid/melting-pot';
 import useClippy from 'use-clippy';
-
+import {FormControl,FormGroup, FormLabel} from '@material-ui/core';
 import './index.css';
 
 const Messages = props => {
@@ -101,50 +101,75 @@ export default () => {
     }
 
     return id !== '' ? (
-        <section style={{display:'flex',flexDirection:'row'}} >
-            <ul id="messages"><Messages data={messages} /></ul>
-            <ul id="online"> <a onClick={()=>logOut()} href='#'><div style={{float:'right'}}></div></a> {online ? '️ You are Online' : 'You are Offline'} <hr/><Online data={onlineList} /> </ul>
-            <div id="sendform">
-                <form onSubmit={e => handleSend(e)} style={{display: 'flex'}}>
-                    <input id="m" />
-                    {width > 1000 ? <button style={{width:'100px'}} type="submit">Send Message</button> :
-                        <button style={{width:'50px'}}><i style={{fontSize:'15px'}} class="material-icons">send</i></button>}
-                </form>
+
+            <div>
+
+                <div class="field">
+                    <div class="container">
+
+                        <ul id="messages"><Messages data={messages} /></ul>
+                    </div>
+                    <div class="column is-3">
+                        <ul id="online"> <a onClick={()=>logOut()} href='#'><div style={{float:'right'}}></div></a> {online ? '️ You are Online' : 'You are Offline'} <hr/><Online data={onlineList} /> </ul>
+                    </div>
+                </div>
+                <div><button style={{color:'red'}} onClick={()=>logOut()}>Logout</button></div>
+                <div id="sendform">
+                    <form onSubmit={e => handleSend(e)} style={{display: 'flex'}}>
+                        <input id="m" />
+                        {width > 1000 ? <button style={{width:'100px'}}  type="submit">Send Message</button> :
+                            <button style={{width:'50px'}}><i style={{fontSize:'15px'}} class="material-icons">send</i></button>}
+                    </form>
+
+                </div>
+
+              {/*  <div id="sendform">
+                    <form style="display: flex; height:"><input id="m" style="height:90px;font-size:20px"></input>
+                        <button style="width: 50px;"><i className="material-icons" style="font-size: 15px;">send</i>
+                        </button>
+                    </form>
+                </div>
+*/}
+
+
             </div>
-        </section>
+
     ) : (
+
         <div style={{ textAlign: 'center', margin: '30vh auto', width: '70%' }}>
+
+
             <form onSubmit={event => handleSubmit(event)}>
-                <label>User Name :  </label><input id="name" /><br />
-
-                {/*<input id="room" placeholder="What's your Major ?" />*/}
+                <FormLabel>User Name : </FormLabel><input size="sm" id="name" />
                 <br />
-
-
-      {/*<label for=" sel-options">What's your Major ?</label>*/}
-      {/*<select id=" sel-options" class=" form-control">*/}
-         {/*<option value="">Select Class</option>*/}
-         {/*<option id="room" value="CMPS 411">CMPS 411</option>*/}
-         {/*<option id="room" value="Math">Mathematics</option>*/}
-
-
-      {/*</select>*/}
-
-
-                <label> Major :  </label>
-                <select id = "room" >
+                <FormLabel>Major : </FormLabel>
+                <select id = "room" size="sm" >
                     <option value = "Computer Science">Computer Science</option>
                     <option value = "Mathematics">Mathematics</option>
                 </select>
+                <br/>
+                <button type="submit" style={{color:'black', background:'lightgreen' }}>Submit</button>
 
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-
-                <button type="submit">Submit</button>
             </form>
+            {/*<form onSubmit={event => handleSubmit(event)}>*/}
+                {/*<label>User Name :  </label><input id="name" /><br />*/}
+
+                {/*<br />*/}
+                {/*<label> Major :  </label>*/}
+                {/*<select id = "room" >*/}
+                    {/*<option value = "Computer Science">Computer Science</option>*/}
+                    {/*<option value = "Mathematics">Mathematics</option>*/}
+                {/*</select>*/}
+
+                {/*<br />*/}
+                {/*<br />*/}
+                {/*<br />*/}
+                {/*<br />*/}
+                {/*<br />*/}
+
+                {/*<button type="submit">Submit</button>*/}
+            {/*</form>*/}
         </div>
+
     );
 };
