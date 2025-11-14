@@ -7,7 +7,7 @@
     "@withvoid/melting-pot": "^1.6.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "react-use-localstorage": "^3.2.2",
     "styled-components": "^4.4.0",
     "use-clippy": "^1.0.3",
